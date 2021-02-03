@@ -41,7 +41,7 @@
 
     // basic rules
     {
-      "files": ["src/**/*.ts"],
+      "files": ["src/**/*.ts", "test/**/*.js"],
       "extends": ["eslint:recommended", "prettier"]
     },
 
