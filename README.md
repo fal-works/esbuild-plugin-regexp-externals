@@ -12,7 +12,7 @@ esbuild.build({
   bundle: true,
   entryPoints: ["src/main.js"],
   outfile: "dist/bundle.js",
-  plugins: [regexpExternals(/^[^\\.]/)],
+  plugins: [regexpExternals(/^[^.]/)],
 });
 ```
 
