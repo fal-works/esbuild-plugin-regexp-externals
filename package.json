@@ -11,6 +11,7 @@
   "bugs": {
     "url": "https://github.com/fal-works/esbuild-plugin-regexp-externals/issues"
   },
+  "type": "module",
   "files": [
     "lib",
     "src"
@@ -18,7 +19,7 @@
   "main": "lib/index.js",
   "module": "lib/index.js",
   "exports": "./lib/index.js",
-  "type": "module",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib"
   },
