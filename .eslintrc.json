@@ -1,4 +1,4 @@
-// see also: https://eslint.org/docs/user-guide/configuring
+// https://eslint.org/docs/user-guide/configuring
 {
   "ignorePatterns": ["/lib/"],
 
@@ -14,36 +14,9 @@
   },
 
   "overrides": [
-    // config with basic rules
+    // all *.js and *.d.ts files
     {
-      "files": ["src/**/*.ts"],
-      "extends": ["eslint:recommended", "prettier"]
-    },
-
-    // config for TypeScript
-    {
-      "files": ["**/*.ts"],
-      "plugins": ["@typescript-eslint"],
-      "parser": "@typescript-eslint/parser"
-    },
-
-    // config for source code in TypeScript
-    {
-      "files": ["src/**/*.ts"],
-      "parserOptions": { "project": "tsconfig.json" },
-      "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "prettier/@typescript-eslint"
-      ],
-      "rules": {
-        "no-fallthrough": "off" // already checked by TypeScript
-      }
-    },
-
-    // config just for pre-formatting purpose
-    {
-      "files": ["lib/**/*.{js,ts}"],
+      "files": ["**/*.{js,d.ts}"],
       "rules": {
         "lines-around-comment": [
           "error",
@@ -56,6 +29,35 @@
             "allowClassStart": true
           }
         ]
+      }
+    },
+
+    // all *.ts files
+    {
+      "files": ["**/*.ts"],
+      "plugins": ["@typescript-eslint"],
+      "parser": "@typescript-eslint/parser"
+    },
+
+    // basic rules
+    {
+      "files": ["src/**/*.ts"],
+      "extends": ["eslint:recommended", "prettier"]
+    },
+
+    // rules for source code in TypeScript
+    {
+      "files": ["src/**/*.ts"],
+      "parserOptions": {
+        "project": "tsconfig.json"
+      },
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier/@typescript-eslint"
+      ],
+      "rules": {
+        "no-fallthrough": "off" // already checked by TypeScript
       }
     }
   ]
