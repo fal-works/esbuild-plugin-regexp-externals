@@ -1,6 +1,15 @@
 # esbuild-plugin-regexp-externals
 
-[esbuild](https://esbuild.github.io/) plugin for specifying external modules with regular expressions.
+A tiny [esbuild](https://esbuild.github.io/) plugin for specifying external modules with regular expressions.
+
+Developed with: esbuild v0.8.39
+
+
+## Install
+
+```text
+npm install -D @fal-works/esbuild-plugin-regexp-externals
+```
 
 
 ## Usage example
