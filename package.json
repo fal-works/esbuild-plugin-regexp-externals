@@ -1,7 +1,7 @@
 {
   "name": "@fal-works/esbuild-plugin-regexp-externals",
   "description": "esbuild plugin for specifying external modules with regular expressions.",
-  "version": "1.0.0",
+  "version": "1.1.0-alpha",
   "license": "CC0-1.0",
   "author": "FAL",
   "keywords": [
@@ -16,9 +16,12 @@
     "lib",
     "src"
   ],
-  "main": "lib/index.js",
+  "main": "lib/index.cjs",
   "module": "lib/index.js",
-  "exports": "./lib/index.js",
+  "exports": {
+    "import": "./lib/index.js",
+    "require": "./lib/index.cjs"
+  },
   "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib"
@@ -35,10 +38,13 @@
     "typescript": "^4.1.3"
   },
   "scripts": {
-    "build": "tsc && npm run format:lib",
-    "preformat:lib": "eslint --fix --no-ignore lib/**/*.{js,ts}",
-    "format:lib": "prettier --write lib/**/*.{js,ts}",
+    "build": "npm run build:esm & npm run build:cjs",
+    "build:esm": "tsc && npm run format:lib:esm",
+    "preformat:lib:esm": "eslint --fix --no-ignore lib/**/*.{js,ts}",
+    "format:lib:esm": "prettier --write lib/**/*.{js,ts}",
+    "build:cjs": "esbuild src/index.ts --outfile=lib/index.cjs --format=cjs --platform=node --minify",
     "lint": "eslint src/",
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "test-require": "node test/test.cjs"
   }
 }
