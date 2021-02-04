@@ -1,7 +1,7 @@
 {
   "name": "@fal-works/esbuild-plugin-regexp-externals",
   "description": "esbuild plugin for specifying external modules with regular expressions.",
-  "version": "1.1.0-alpha",
+  "version": "1.1.0",
   "license": "CC0-1.0",
   "author": "FAL",
   "keywords": [
